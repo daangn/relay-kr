@@ -48,7 +48,7 @@ fragment UserFragment on User {
 
 ## Rendering Queries
 
-릴레이에서 쿼리를 렌더링 하기 위해서 usePreloadedQuery 라는 hook 을 사용할 수 있습니다. usePreloadedQuery 는 쿼리의 정의와 참조를 매개변수로 사용하여 해당 데이터를 반환합니다.
+Relay에서 쿼리를 렌더링 하기 위해서 usePreloadedQuery 라는 hook 을 사용할 수 있습니다. usePreloadedQuery 는 쿼리의 정의와 참조를 매개변수로 사용하여 해당 데이터를 반환합니다.
 
 
 
@@ -85,7 +85,7 @@ usePreloadedQuery 는 `graphql`쿼리와 참조를 가지고 해당 쿼리에 �
 - HomeTab 이라는 컴포넌트의 경우에는  Props 로 내려받는 queryRef를 설명하고 참조하여 쿼리에 해당되는 데이터를 반환합니다.
 - PreloadedQuery는 relay Complier 가 생성해주는  type parameter 를 타입으로 가지고 있습니다. 위의 경우에는 `HomeTabQuery` 의 타입이 여기에 해당됩니다.
 
-- Fragments 와 유사하게 *구성 요소는 쿼리 데이터에 대한 업데이트를 자동으로 구독합니다* . 이 쿼리에 대한 데이터가 앱의 어디에서나 업데이트되면 구성 요소는 최신 업데이트된 데이터로 자동으로 다시 렌더링됩니다.
+- 프래그먼트 와 유사하게 *구성 요소는 쿼리 데이터에 대한 업데이트를 자동으로 구독합니다* . 이 쿼리에 대한 데이터가 앱의 어디에서나 업데이트되면 구성 요소는 최신 업데이트된 데이터로 자동으로 다시 렌더링됩니다.
 
 - usePreloadedQuery 또한  type parameter 를 HomeTabQuery 로 가지고 있습니다. 
 
@@ -259,7 +259,7 @@ function App() {
 
 - `useLazyLoadQuery` graphql 쿼리와 해당 쿼리에 대한 일부 변수를 사용하고 해당 쿼리에 대해 가져온 데이터를 반환합니다. 변수는 GraphQL 쿼리 내에서 참조 되는 변수의 값을 포함하는 객체 입니다.
 
-- fragments와 유사하게 구성 요소는 쿼리 데이터에 대한 업데이트를 자동으로 구독합니다. 이 쿼리에 대한 데이터가 앱의 어느 곳에서나 업데이트되면 구성 요소는 최신 업데이트된 데이터로 자동으로 다시 렌더링됩니다.
+- 프래그먼트와 유사하게 구성 요소는 쿼리 데이터에 대한 업데이트를 자동으로 구독합니다. 이 쿼리에 대한 데이터가 앱의 어느 곳에서나 업데이트되면 구성 요소는 최신 업데이트된 데이터로 자동으로 다시 렌더링됩니다.
 
 
   - Relay는 선언된 쿼리에 대해 type을 자동으로 생성하므로 가져오고 사용할 수 있습니다 `useLazyLoadQuery`. 이러한 유형은 다음과 같은 이름 형식으로 생성된 파일에서 사용할 수 있습니다 `<query_name>.graphql.js`.
