@@ -1,4 +1,6 @@
-# Query 유지하기
+# Managing Data Outside React
+
+## Query 유지하기
 
 Relay 가 참조 데이터를 가비지 컬렉팅 하지 않도록 query 를 수동으로 유지하기 위해 `environment.retain` 메서드를 사용할 수 있어요.
 

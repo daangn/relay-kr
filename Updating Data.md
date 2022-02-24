@@ -72,7 +72,7 @@ const feedbackLikeMutation = graphql`
 `;
 ```
 
-mutations 은 query 나 fragment 를 수행했던 방식으로 [GraphQL 변수](https://relay.dev/docs/guided-tour/rendering/variables/) 를 참조한다는 점을 알아두어요.
+mutations 은 query 나 fragment 를 수행했던 방식으로 [GraphQL 변수](https://daangn-2.gitbook.io/relay-kr/variables) 를 참조한다는 점을 알아두어요.
 
 Relay 에서는 서버에 mutation 을 수행하기 위해, `commitMutation` 와 [useMutation](https://relay.dev/docs/api-reference/use-mutation/) API 를 사용할 수 있어요.
 
@@ -203,7 +203,7 @@ module.exports = {commit: commitCommentCreateMutation};
 
 - `updater` 함수는 `RecordSourceSelectorProxy` 의 인스턴스인 store 를 첫번째 인자로 받아요. 이 interface 는 절차적으로 Relay store 의 데이터를 읽고 작성해요. 이것은 mutation response 의 응답에 store 를 업데이트 하는 방식을 개발자가 전부 제어할 수 있음을 의미해요. 개발자는 새로운 record 를 전적으로 생성할 수도 있고, 기존 record 를 업데이트하거나 삭제할 수 있어요.
   - `updater` 함수는 두번째 인자로 `payload` 를 받아요.  `paylod` 인자는 mutation response 오브젝트에요. `payload` 인자를 통해서 store 에 접근하지 않아도 mutation response 로 받은 payload data 를 읽을 수 있어요.
-- 예제를 볼게요. 서버에 comment 를 성공적으로 추가한 이후, local store 에 새로운 comment 를 추가했어요. 더 자세히 이야기하자면. connection 에 새로운 item 을 추가하는 거에요. connection 에서 item 을 추가하거나 삭제하는 방법에 대해 좀 더 자세히 알고 싶다면 이 [섹션](https://relay.dev/docs/guided-tour/list-data/updating-connections/) 을 참고해주세요.
+- 예제를 볼게요. 서버에 comment 를 성공적으로 추가한 이후, local store 에 새로운 comment 를 추가했어요. 더 자세히 이야기하자면. connection 에 새로운 item 을 추가하는 거에요. connection 에서 item 을 추가하거나 삭제하는 방법에 대해 좀 더 자세히 알고 싶다면 이 [섹션](https://daangn-2.gitbook.io/relay-kr/rendering-list-data-and-pagination-part-2#updating-connections) 을 참고해주세요.
   - 사실 위의 예제에서는 굳이 `updater` 함수를 사용하지 않아도 괜찮아요! 예제 상황에서는 `@appendEdge` directive 를 사용하는 것이 best practice 에요.
 - mutation response 는 `store` 로부터 접근 가능한 root field record 라는 점을 기억하세요. `store.getRootField` API 를 사용해서 접근할 수 있어요. 예제에서는 mutation response root field 인 `comment_create` root field 에 접근하고 있어요.
 - mutation 의 `root` field 는 query 의 `root` field 와 구분해서 생각해야 돼요. mutation updater 의 `store.getRootField` 는 mutation response 의 record 에요. mutation response 뿐만이 아닌 전체 root 에서 record 에 접근하고 싶다면 `store.getRoot().getLinkedRecord` 를 대신 사용해요.
@@ -355,7 +355,7 @@ mutation 으로 local store 의 데이터를 업데이트하면, 이 데이터�
 
 다음 예제는 사용할 수 있는 모든 옵션들(`optimisticResponse`, `optimisticUpdater`, `updater`) 을 이용해 복잡한 시나리오를 구현한 예제에요. 
 
-새로운 comment 를 추가하는 mutation 을 나타낸 예제에요. (connection 업데이트에 대한 자세한 설명은 [connection 업데이트하기](https://relay.dev/docs/guided-tour/list-data/updating-connections/) 를 참고하세요.)
+새로운 comment 를 추가하는 mutation 을 나타낸 예제에요. (connection 업데이트에 대한 자세한 설명은 [connection 업데이트하기](https://daangn-2.gitbook.io/relay-kr/rendering-list-data-and-pagination-part-2#updating-connections) 를 참고하세요.)
 
 ```typescript
 import type {Environment} from 'react-relay';
@@ -464,7 +464,7 @@ mutation 과 관련한 모든 데이터를 mutation 과정의 일부로 서버�
 
 이와 같은 mutation 상황에서는, 전체 store 나 일부 데이터를 명시적으로 stale 로 표시하여 다음 렌더링 때 Relay 가 re-fetch 하도록 할 수 있어요.
 
-이와 같이 데이터 무효화 API 와 관련한 이야기는 [데이터 섹션의 부패(staleness)](https://relay.dev/docs/guided-tour/reusing-cached-data/staleness-of-data/) 에서 더 자세히 확인할 수 있어요.
+이와 같이 데이터 무효화 API 와 관련한 이야기는 [데이터 섹션의 부패(staleness)](https://daangn-2.gitbook.io/relay-kr/reuse-cached-data-for-rendering#staleness-of-data) 에서 더 자세히 확인할 수 있어요.
 
 ## Mutation queueing
 
@@ -640,7 +640,7 @@ module.exports = {subscribe: commentCreateSubscribe};
 예제를 자세히 살펴볼게요
  
 - `updater` 함수는 `RecordSourceSelectorProxy` 의 인스턴스인 store 를 첫번째 인자로 받아요. 이 interface 는 절차적으로 Relay store 의 데이터를 읽고 작성해요. 이것은 subscription payload 의 응답에 store 를 업데이트 하는 방식을 개발자가 전부 제어할 수 있음을 의미해요. 개발자는 새로운 record 를 전적으로 생성할 수도 있고, 기존 record 를 업데이트하거나 삭제할 수 있어요. Relay store 가 읽고 쓰는 작업에 대한 전체 API 는 https://facebook.github.io/relay/docs/en/relay-store.html 에서 확인 가능해요.
-- 예제를 볼게요. subscription payload 를 받은 뒤 local store 에 새로운 comment 를 추가했어요. 더 자세히 이야기하자면. connection 에 새로운 item 을 추가하는 거에요. connection 에서 item 을 추가하거나 삭제하는 방법에 대해 좀 더 자세히 알고 싶다면 이 [섹션](https://relay.dev/docs/guided-tour/list-data/updating-connections/) 을 참고해주세요.
+- 예제를 볼게요. subscription payload 를 받은 뒤 local store 에 새로운 comment 를 추가했어요. 더 자세히 이야기하자면. connection 에 새로운 item 을 추가하는 거에요. connection 에서 item 을 추가하거나 삭제하는 방법에 대해 좀 더 자세히 알고 싶다면 이 [섹션](https://daangn-2.gitbook.io/relay-kr/rendering-list-data-and-pagination-part-2#updating-connections) 을 참고해주세요.
 - subscription payload 는 `store` 로부터 접근 가능한 root field record 라는 점을 기억하세요. `store.getRootField` API 를 사용해서 접근할 수 있어요. 예제에서는 subscription response root field 인 `comment_create_subsribe` root field 에 접근하고 있어요.
 - `updater` 함수를 통해 local store 의 데이터를 업데이트하면, 이 데이터를 구독하는 컴포넌트에 데이터 변화를 전파하고 re-render 를 발생시켜요.
 
@@ -784,7 +784,7 @@ module.exports = {commit: commitCommentCreateLocally};
 
 - `commitLocalUpdate` 는 environment 를 첫번째 인자로 받고, `updater` 콜백 함수를 두번째 인자로 받아요.
   - `updater` 콜백 함수는 `RecordSourceSelectorProxy` 의 인스턴스인 store 를 인자로 받아요. 이 interface 는 절차적으로 Relay store 의 데이터를 읽고 작성해요. 이것은 store 를 업데이트 하는 방식을 개발자가 전부 제어할 수 있음을 의미해요. 개발자는 새로운 record 를 전적으로 생성할 수도 있고, 기존 record 를 업데이트하거나 삭제할 수 있어요. 
-- 예제에서는 local store 에 새로운 comment 를 추가해요. 좀 더 구체적으로 설명하면 connection 에 새로운 item 을 추가하는 것으로 볼 수 있어요. connection 에서 item 을 추가하거나 삭제하는 방법에 대해 좀 더 자세히 알고 싶다면 이 [섹션](https://relay.dev/docs/guided-tour/list-data/updating-connections/) 을 참고해주세요.
+- 예제에서는 local store 에 새로운 comment 를 추가해요. 좀 더 구체적으로 설명하면 connection 에 새로운 item 을 추가하는 것으로 볼 수 있어요. connection 에서 item 을 추가하거나 삭제하는 방법에 대해 좀 더 자세히 알고 싶다면 이 [섹션](https://daangn-2.gitbook.io/relay-kr/rendering-list-data-and-pagination-part-2#updating-connections) 을 참고해주세요.
 - local store 의 데이터를 업데이트하면, 이 데이터를 구독하는 컴포넌트에 데이터 변화를 전파하고 re-render 를 발생시켜요.
 
 ## commitPayload
