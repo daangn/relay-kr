@@ -34,4 +34,4 @@ disposable.dispose();
 ### 알아두세요
 Relay 는 data 를 render 하는 mount 상태의 query 컴포넌트를 기반으로 query data retain 을 자동으로 관리해요.
 그래서 일반적인 상황에서는 production code 에서 retain 을 직접 호출할 필요가 없어요.
-좀 더 특수하거나 고급적인 사용을 고려한다면, query data retention 은 Router 와 같은 infra-leve 코드에서 다뤄야 해요.
+좀 더 특수하거나 고급적인 사용을 고려한다면, query data retention 은 Router 와 같은 infra-level 코드에서 다뤄야 해요.
