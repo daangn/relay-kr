@@ -37,10 +37,10 @@ mutation FeedbackLikeMutation($input: FeedbackLikeData!) {
 - 예시의 mutation 은 특정 `Feedback` 오브젝트의 like 데이터를 수정해요. `feedback_like` 는 mutation root field(또는 mutation field) 에요. 이 mutation field 는 특정 data 를 입력받고 Back-end 에서 관련 데이터를 서버에서 업데이트 해요.
 - mutation 은 서로 분리된 두 단계로 나뉘어요. 먼저 서버에서 데이터를 업데이트해요. 그 후 query 를 수행해요. 이것으로 mutation response 부분만 업데이트한 데이터만 볼 수 있게 해줘요.
 - mutation field (예제에서는 `feedback_like`) 는 특정 GraphQL 타입을 반환해요. 이 GraphQL 타입은, mutation response 으로 query 할 수 있는 데이터를 노출시켜요. 
-- mutation field 에서 접근할 수 있는 field 들은 기본 query 에서 자동으로 접근할 수 있는 field 와 동일하지 않아요. 이것은 mutation response 의 일부로 업데이트한 모든 entities 와 `viewer` 오브젝트를 포함하는 best practice 에요. 
-- 예제에서는, `like_count` 와 현재 화면을 보고 있는 사용자가 feedback object 를 좋아요 했는지를 나타내는 `viewer_does_like` 값을 업데이트한 feedback 오브젝트를 query 해요.
+- mutation field 에서 접근할 수 있는 field 들은 일반적인 query 에서 접근할 수 있는 field 들을 알아서 자동으로 담지 않아요. 그래서 mutation response 에서 업데이트한 모든 entities 와 `viewer` 오브젝트를 mutation field 에 포함하는 것이 가장 좋은 방법이에요.
+- 예제를 보면 `like_count` 와, 현재 화면을 보고 있는 사용자가 `Feedback` object 를 좋아요 보여주는 `viewer_does_like` 값을 업데이트한 `Feedback` 오브젝트를 query 해요.
 
-위 mutation 예시에 대한 성공적인 response 는 다음과 같아요.
+예제의 mutation 의 성공 response 는 다음과 같아요.
 
 ```graphql
 {
@@ -54,7 +54,7 @@ mutation FeedbackLikeMutation($input: FeedbackLikeData!) {
 }
 ```
 
-Relay 에서는 `graphql` 키워드를 사용해서 GraphQL mutations 를 선언할 수 있어요.
+Relay 에서는 `graphql` 키워드를 사용해서 GraphQL mutations 를 선언할 수도 있어요.
 
 ```javascript
 const {graphql} = require('react-relay');
@@ -72,9 +72,9 @@ const feedbackLikeMutation = graphql`
 `;
 ```
 
-mutations 은 query 나 fragment 를 수행했던 방식으로 [GraphQL 변수](https://daangn-2.gitbook.io/relay-kr/variables) 를 참조한다는 점을 알아두어요.
+mutations 은 query 나 fragment 에서 사용하는 것처럼 [variables](https://daangn-2.gitbook.io/relay-kr/variables) 를 사용할 수 있어요.
 
-Relay 에서는 서버에 mutation 을 수행하기 위해, `commitMutation` 와 [useMutation](https://relay.dev/docs/api-reference/use-mutation/) API 를 사용할 수 있어요.
+Relay 에서는 서버에서 mutation 을 수행하기 위해, `commitMutation` 와 [useMutation](https://relay.dev/docs/api-reference/use-mutation/) API 를 사용할 수 있어요.
 
 아래는 `commitMutation` API 를 사용한 예제에요. 
 
@@ -111,10 +111,10 @@ module.exports = {commit: commitFeedbackLikeMutation};
 
 위 예제가 어떻게 작동하는지 자세히 확인해볼게요.
 
-- `commitMutation` 은 첫번째 인자로 environment 를 받아요. 두번째 인자에서는 `graphql` 키워드로 mutation 을 표현하고, 서버에서 mutation 요청을 보내기 위해 variables 를 표시해요.
+- `commitMutation` 은 첫번째 인자로 environment 를 받아요. 두번째 인자에서는 `graphql` 키워드로 mutation 을 선언하고, mutation 요청을 위한 variables 를 선언해요.
 - `input` 은 `FeedbackLikeMutation.graphql` 모듈을 이용해  auto-gen 된 Flow 타입이 될 수 있어요. Relay 는 기본적으로 빌드시점에 mutation 을 위한 Flow 타입을 제네레이트 해요. 제네레이트 결과로 나온 Flow 타입은 `*<mutation_name>*.graphql.js` 형태를 띄어요.
 - `variables` 과 `onCompleted` 의 `response` 매개변수, `optimisticResponse` 는 개별로 auto-gen 된 타입으로 타이핑되어요. `FeedbackLikeMutation.graphql` 모듈을 통해 `FeedbackLikeMutation` 타입으로 타이핑 된 것처럼.
-- `optimisticResponse` 필드를 강타입으로 타이핑하기 위해 mutation query root 에 `@raw_response_type` directive 를 추가해야 해요.
+- `optimisticResponse` 필드를 타이핑하기 위해 mutation query root 에 `@raw_response_type` directive 를 할 수 있어요.
 - `commitMutation` 는 다음 두 콜백을 가져요. 요청을 성공적으로 완료한 경우 호출하는 `onCompletd` 와  에러가 발생했을 때 호출하는 `onError`.
 - mutation response 를 받으면, local store 에서 같은 `id` field 를 가진 레코드를 찾아 이 레코드를 mutation 응답의 새로운 field 로 자동으로 업데이트해요. 
     - 예제에서는, local store 에 이미 존재하는 `Feedback` 오브젝트 중에서 mutation 응답으로 받은 id 와 매칭하는 `Feedback` 오브젝트를 찾아요. 그리고 이 매칭하는 `Feedback` 오브젝트에서 `viewer_does_like` 와 `like_count` 필드를 업데이트해요.
@@ -125,12 +125,12 @@ module.exports = {commit: commitFeedbackLikeMutation};
 요청이 성공했을 때 store 데이터를 업데이트하는 방법으로 다음 네 가지가 있어요.
 
 - 내부 mutation field 로 id field 를 가지고 field 를 query 하면, local store 의 레코드는 mutation response 의 새로운 값으로 자동 업데이트해요. 위 예제에서는, query 가 `feedback` 과 `id` field 를 가지고 있기 때문에, Relay 는 local store 에서 이 id field 와 매칭한 `Feedback` 을 찾아요. 그리고 `Feedback` 오브젝트에서 `viewer_does_like` 와 `like_count` field 를 업데이트해요.
-    - mutation 을 완료한 후, fragment 를 refetch 하는 대신, mutation response 를 가지고 fragment 을 spread 해요. 이 방법은 동일 요청에서 fragment 데이터를 업데이트하는 방법이에요.
+    - mutation 을 완료한 후, fragment 를 refetch 하는 대신, mutation response 를 가지고 fragment 을 spread 해요. 이 방법을 통해 동일 요청에서 fragment 데이터 또한 업데이트 할 수 있어요.
 - 내부 mutation field 로 id field 와 `@deleteRecord` directive 를 가지고 있으면, local store 에서 해당 field 를 삭제해요.
 - 내부 mutation field 로 `@prepandEdge` 나 `@appendEdge` directive 를 가지고 edge field 를 query 하면, connection 에서 edge 를 prepend 하거나 append 해요. 
 - 위 세 가지에 해당하지 않으면, mutation 요청이 성공했을 때 local store 의 데이터를 어떻게 update 할지는 updater 콜백으로 설정할 수 있어요.
 
-지금까지 local store 의 데이터를 업데이트하는 방법을 개별 시나리오로만 표현했어요. 그런데 둘 이상의 방법으로 local store 데이터를 업데이트하는 경우, relay 가 어떤 순서로 데이터를 업데이트하는지 아래에 `updater 함수들의 실행 순서` 에서 자세히 확인할 수 있어요.
+지금까지 local store 의 데이터를 업데이트하는 방법을 개별 시나리오로만 표현했어요. 그런데 둘 이상의 방법으로 local store 데이터를 업데이트하는 경우, relay 가 어떤 순서로 데이터를 업데이트하는지 아래에 [`updater 함수들의 실행 순서`](https://daangn-2.gitbook.io/relay-kr/updating-data#updater-2) 에서 자세히 확인할 수 있어요.
 
 ## Updater 함수
 
