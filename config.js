@@ -1,67 +1,56 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://hasura.io',
+    siteUrl: 'https://relay-ko.github.io',
     gaTrackingId: null,
     trailingSlash: false,
   },
   header: {
-    logo: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
-    logoLink: 'https://hasura.io/learn/',
-    title:
-      "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
-    githubUrl: 'https://github.com/hasura/gatsby-gitbook-boilerplate',
+    logo: '',
+    logoLink: '',
+    title: "<a href='https://relay-ko.github.io/'>Relay</a>",
+    githubUrl: 'https://github.com/daangn/relay-kr',
     helpUrl: '',
     tweetText: '',
-    social: `<li>
-		    <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
-		      <div class="twitterBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Twitter'}/>
-		      </div>
-		    </a>
-		  </li>
-			<li>
-		    <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		      <div class="discordBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
-		      </div>
-		    </a>
-		  </li>`,
     links: [{ text: '', link: '' }],
     search: {
-      enabled: false,
-      indexName: '',
-      algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
-      algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-      algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
+      enabled: true,
+      indexName: 'relay-kr',
+      // algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
+      // algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+      // algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
     },
   },
   sidebar: {
     forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
-      '/codeblock',
+      '/A Guided Tour', // add trailing slash if enabled above
+      '/Guides',
+      '/Principles and Architecture',
     ],
     collapsedNav: [
-      '/codeblock', // add trailing slash if enabled above
+      '/A Guided Tour/Rendering Data Basics', // add trailing slash if enabled above
+      '/A Guided Tour/Reusing Cached Data for Rendering',
+      '/A Guided Tour/Refreshing and Refetching',
+      '/A Guided Tour/Rendering List Data and Pagination',
+      '/A Guided Tour/Updating Data',
+      '/A Guided Tour/Managing Data Outside React',
     ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
+    links: [],
     frontline: false,
     ignoreIndex: true,
-    title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
   },
   siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
-    description: 'Documentation built with mdx. Powering hasura.io/learn ',
-    ogImage: null,
-    docsLocation: 'https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content',
-    favicon: 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg',
+    title: 'Relay | daangn',
+    description: 'Relay in korean, served by daangn.com',
+    ogImage: 'https://github.com/daangn/relay-kr/relay.png',
+    docsLocation: 'https://github.com/daangn/relay-kr/tree/main/content',
+    favicon: 'https://github.com/daangn/relay-kr/favicon.svg',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
     manifest: {
-      name: 'Gatsby Gitbook Starter',
-      short_name: 'GitbookStarter',
+      name: 'relay-kr',
+      short_name: 'relay-kr',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',
@@ -69,9 +58,9 @@ const config = {
       crossOrigin: 'use-credentials',
       icons: [
         {
-          src: 'src/pwa-512.png',
+          src: 'https://github.com/daangn/relay-kr/favicon.svg',
           sizes: `512x512`,
-          type: `image/png`,
+          type: `image/svg`,
         },
       ],
     },

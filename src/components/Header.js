@@ -76,33 +76,18 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
       }
     `}
     render={(data) => {
-      const logoImg = require('./images/logo.svg');
-
       const twitter = require('./images/twitter.svg');
-
-      const discordBrandsBlock = require('./images/discord-brands-block.svg');
-
-      const twitterBrandsBlock = require('./images/twitter-brands-block.svg');
 
       const {
         site: {
-          siteMetadata: { headerTitle, githubUrl, helpUrl, tweetText, logo, headerLinks },
+          siteMetadata: { headerTitle, githubUrl, helpUrl, tweetText, headerLinks },
         },
       } = data;
-
-      const finalLogoLink = logo.link !== '' ? logo.link : 'https://hasura.io/';
 
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>
             <div className={'navBarHeader'}>
-              <Link to={finalLogoLink} className={'navBarBrand'}>
-                <img
-                  className={'img-responsive displayInline'}
-                  src={logo.image !== '' ? logo.image : logoImg}
-                  alt={'logo'}
-                />
-              </Link>
               <div
                 className={'headerTitle displayInline'}
                 dangerouslySetInnerHTML={{ __html: headerTitle }}
