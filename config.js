@@ -23,9 +23,10 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/A Guided Tour', // add trailing slash if enabled above
-      '/Guides',
-      '/Principles and Architecture',
+      '/getting-started',
+      '/a-guided-tour', // add trailing slash if enabled above
+      '/guides',
+      '/principles-and-architecture',
     ],
     collapsedNav: [
       '/A Guided Tour/Rendering Data Basics', // add trailing slash if enabled above
