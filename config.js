@@ -1,15 +1,15 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://relay-ko.github.io',
+    siteUrl: 'https://relay-kr.github.io',
     gaTrackingId: null,
     trailingSlash: false,
   },
   header: {
     logo: '',
     logoLink: '',
-    title: "<a href='https://relay-ko.github.io/'>Relay</a>",
-    githubUrl: 'https://github.com/daangn/relay-kr',
+    title: "<a href='https://relay-kr.github.io/'>Relay</a>",
+    githubUrl: 'https://github.com/daangn/relay-kr.github.io',
     helpUrl: '',
     tweetText: '',
     links: [{ text: '', link: '' }],
@@ -24,18 +24,11 @@ const config = {
   sidebar: {
     forcedNavOrder: [
       '/getting-started',
-      '/a-guided-tour', // add trailing slash if enabled above
+      '/a-guided-tour',
       '/guides',
       '/principles-and-architecture',
     ],
-    collapsedNav: [
-      '/A Guided Tour/Rendering Data Basics', // add trailing slash if enabled above
-      '/A Guided Tour/Reusing Cached Data for Rendering',
-      '/A Guided Tour/Refreshing and Refetching',
-      '/A Guided Tour/Rendering List Data and Pagination',
-      '/A Guided Tour/Updating Data',
-      '/A Guided Tour/Managing Data Outside React',
-    ],
+    collapsedNav: ['/a-guided-tour/rendering-data-basics'],
     links: [],
     frontline: false,
     ignoreIndex: true,
@@ -43,9 +36,9 @@ const config = {
   siteMetadata: {
     title: 'Relay | daangn',
     description: 'Relay in korean, served by daangn.com',
-    ogImage: 'https://github.com/daangn/relay-kr/relay.png',
-    docsLocation: 'https://github.com/daangn/relay-kr/tree/main/content',
-    favicon: 'https://github.com/daangn/relay-kr/favicon.svg',
+    ogImage: 'https://github.com/daangn/relay-kr.github.io/relay.png',
+    docsLocation: 'https://github.com/daangn/relay-kr.github.io/tree/main/content',
+    favicon: 'https://github.com/daangn/relay-kr.github.io/favicon.svg',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
