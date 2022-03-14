@@ -26,7 +26,7 @@ const ListItem = styled(({ className, active, level, ...props }) => {
     position: relative;
 
     &:hover {
-      color: #1ed3c6 !important;
+      color: #f26b00 !important;
     }
 
     ${(props) =>
@@ -56,7 +56,7 @@ const Sidebar = styled('aside')`
   position: sticky;
   top: 0;
   padding-right: 0;
-  -webkit-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
+  -webkit-box-shadow: -1px 0px 4px 1px #8d949e;
 
   @media only screen and (max-width: 1023px) {
     width: 100%;

@@ -11,6 +11,7 @@ import config from '../../config.js';
 const Wrapper = styled('div')`
   display: flex;
   justify-content: space-between;
+  padding-top: 80px;
   background: ${({ theme }) => theme.colors.background};
 
   .sideBarUL li a {
@@ -18,7 +19,7 @@ const Wrapper = styled('div')`
   }
 
   .sideBarUL .item > a:hover {
-    background-color: #1ed3c6;
+    background-color: #f26b00;
     color: #fff !important;
 
     /* background: #F8F8F8 */

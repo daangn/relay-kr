@@ -11,16 +11,16 @@ export const baseStyles = css`
   }
   ::-webkit-input-placeholder {
     /* Edge */
-    color: #c2c2c2;
+    color: #fff;
   }
 
   :-ms-input-placeholder {
     /* Internet Explorer */
-    color: #c2c2c2;
+    color: #fff;
   }
 
   ::placeholder {
-    color: #c2c2c2;
+    color: #fff;
   }
   html,
   body {
@@ -76,7 +76,7 @@ export const baseStyles = css`
     border-radius: 1px;
     margin: 0 auto;
     margin-top: 4px;
-    background-color: #001934;
+    background-color: #18191a;
   }
   .navBarToggle .iconBar:first-child {
     margin-top: 0px;
@@ -134,12 +134,12 @@ export const baseStyles = css`
 
   .navbar-default .navbar-toggle:focus,
   .navbar-default .navbar-toggle:hover {
-    background-color: #001933;
+    background-color: #1c1e21;
   }
 
   .headerWrapper {
     border-bottom: 1px solid rgb(212, 218, 223);
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
+    box-shadow: #1c1e21 0px 1px 1px 0px;
     display: flex;
     align-items: center;
   }
@@ -154,17 +154,16 @@ export const baseStyles = css`
     border: none;
   }
   .formElement svg path {
-    fill: #2fd2c5;
+    fill: #f26b00;
   }
   .searchInput {
     width: 100%;
-    background-color: rgba(28,211,198,.12) !important;
+    background-color: rgba(28, 211, 198, 0.12) !important;
     border-width: 0 !important;
-    color: #C2C2C2;
     padding: 10px;
     border-radius: 5px;
     color: #fff;
-    opacity: .6;
+    opacity: 0.6;
     padding-left: 38px;
     max-width: 600px;
   }
@@ -193,7 +192,7 @@ export const baseStyles = css`
     max-width: 30em;
     top: 40px;
     border: 1px solid #ccc;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 4px 0 #1c1e21;
     height: auto;
     max-height: 80vh;
     overflow: scroll;
@@ -223,11 +222,10 @@ export const baseStyles = css`
   }
   .headerTitle {
     height: auto;
-    font-size: 16px;
+    font-size: 24px;
     line-height: 1.5;
-    font-weight: 300;
+    font-weight: 700;
     color: #fff !important;
-    margin-top: 16px;
     text-transform: uppercase;
   }
   .headerTitle a {
@@ -257,21 +255,22 @@ export const baseStyles = css`
     padding: 0 !important;
   }
   .navBarDefault {
-    background-color: #001934;
+    background-color: #000;
     border-radius: 0;
     border-top: 0;
     margin-bottom: 0;
     border: 0;
     display: flex;
     align-items: center;
-    box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
-    -webkit-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
-    -moz-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.8);
-    -o-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
+    box-shadow: -1px 0px 4px 1px #1c1e21;
+    -webkit-box-shadow: -1px 0px 4px 1px #1c1e21;
+    -moz-box-shadow: -1px 0px 4px 1px #1c1e21;
+    -o-box-shadow: -1px 0px 4px 1px #1c1e21;
     z-index: 1;
     padding: 15px;
-    position: relative;
+    position: fixed;
     height: 80px;
+    width: 100%;
   }
   .navBarHeader {
     min-width: 335px;
@@ -338,7 +337,8 @@ export const baseStyles = css`
   .socialWrapper li a {
     display: contents;
   }
-  .discordBtn, .twitterBtn {
+  .discordBtn,
+  .twitterBtn {
     border-radius: 4px;
     border: solid 1px #d1d2d3;
     background-color: #f1f5f8;
@@ -349,7 +349,7 @@ export const baseStyles = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: .8;
+    opacity: 0.8;
     cursor: pointer;
   }
   .twitterBtn img {
@@ -358,7 +358,8 @@ export const baseStyles = css`
   .discordBtn img {
     width: 10px !important;
   }
-  .discordBtn:hover, .twitterBtn:hover {
+  .discordBtn:hover,
+  .twitterBtn:hover {
     opacity: 1;
   }
   .discordBtn {
@@ -368,13 +369,13 @@ export const baseStyles = css`
   }
   /* Header section ends here */
   .sidebarTitle {
-    /* box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16); */
+    /* box-shadow: 0 3px 6px 0 #1c1e21; */
     background-color: #f8f8f8;
     padding: 18px 16px;
     font-family: 'Poppins';
     font-size: 18px;
     font-weight: 600;
-    color: #001934;
+    color: #18191a;
     display: flex;
     align-items: center;
   }
@@ -384,13 +385,13 @@ export const baseStyles = css`
   }
 
   .sidebarTitle a {
-    color: #001934;
+    color: #18191a;
   }
 
   .greenCircle {
     width: 8px;
     height: 8px;
-    background-color: #1cd3c6;
+    background-color: #f26b00;
     border-radius: 50%;
     margin: 0 12px;
   }
@@ -398,14 +399,14 @@ export const baseStyles = css`
   .headerNav {
     font-family: 'Roboto';
     padding: 0px 24px;
-    color: #001933;
+    color: #1c1e21;
     font-size: 16px;
     font-weight: 500;
     line-height: 1em;
   }
 
   .headerNav a {
-    color: #001933;
+    color: #1c1e21;
     text-decoration: none;
   }
 
@@ -450,14 +451,14 @@ export const baseStyles = css`
   }
 
   .hideFrontLine .active > a {
-    background-color: #1ed3c6;
+    background-color: #f26b00;
     color: #fff !important;
   }
   .firstLevel ul li .collapser svg path {
     fill: #fff !important;
   }
   .active .collapser > svg > path {
-    fill: #001933 !important;
+    fill: #1c1e21 !important;
   }
 
   .firstLevel ul .item ul .item {
@@ -470,7 +471,7 @@ export const baseStyles = css`
   }
 
   .sideBarUL .item > a {
-    color: #1ED3C6;
+    color: #f26b00;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -481,12 +482,12 @@ export const baseStyles = css`
   }
 
   .showFrontLine .item > a:hover {
-    background-color: #001933;
+    background-color: #1c1e21;
   }
 
   .showFrontLine .active > a {
     /* color: #fff; */
-    background-color: #001933;
+    background-color: #1c1e21;
   }
 
   .sideBarUL .item .item {
@@ -508,7 +509,7 @@ export const baseStyles = css`
     border-color: rgb(230, 236, 241) !important;
     border-style: solid none solid solid;
     border-width: 1px 0px 1px 1px;
-    background-color: #1ed3c6 !important;
+    background-color: #f26b00 !important;
     color: #fff;
   }
 
@@ -734,13 +735,13 @@ export const baseStyles = css`
 
   @media (max-width: 767px) {
     .formElement svg path {
-      fill: #001934;
+      fill: #18191a;
     }
     .visibleMobileView {
       display: block !important;
     }
     .searchInput {
-      color: #001934;
+      color: #18191a;
     }
     .socialWrapper {
       position: absolute;
