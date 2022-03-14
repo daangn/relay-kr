@@ -1,15 +1,15 @@
 const config = {
   gatsby: {
-    pathPrefix: '/',
-    siteUrl: 'https://relay-kr.github.io',
+    pathPrefix: '/relay-kr',
+    siteUrl: 'https://daangn.github.io',
     gaTrackingId: null,
     trailingSlash: false,
   },
   header: {
     logo: '',
     logoLink: '',
-    title: "<a href='https://relay-kr.github.io/'>Relay</a>",
-    githubUrl: 'https://github.com/daangn/relay-kr.github.io',
+    title: "<a href='https://daangn.github.io/relay-kr'>Relay</a>",
+    githubUrl: 'https://github.com/daangn/relay-kr',
     helpUrl: '',
     tweetText: '',
     links: [{ text: '', link: '' }],
@@ -35,24 +35,24 @@ const config = {
   },
   siteMetadata: {
     title: 'Relay | daangn',
-    description: 'Relay in korean, served by daangn.com',
-    ogImage: 'https://github.com/daangn/relay-kr.github.io/relay.png',
-    docsLocation: 'https://github.com/daangn/relay-kr.github.io/tree/main/content',
-    favicon: 'https://github.com/daangn/relay-kr.github.io/favicon.svg',
+    description: 'Relay in korean, served by daangn',
+    ogImage: 'https://daangn.github.io/relay-kr/relay.png',
+    docsLocation: 'https://github.com/daangn/relay-kr/tree/main/content',
+    favicon: 'https://daangn.github.io/relay-kr/favicon.svg',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
     manifest: {
       name: 'relay-kr',
       short_name: 'relay-kr',
-      start_url: '/',
+      start_url: '/relay-kr',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',
       display: 'standalone',
       crossOrigin: 'use-credentials',
       icons: [
         {
-          src: 'https://github.com/daangn/relay-kr/favicon.svg',
+          src: 'https://daangn.github.io/relay-kr/favicon.svg',
           sizes: `512x512`,
           type: `image/svg`,
         },
