@@ -21,7 +21,7 @@ const appendString = (children) => {
       }
     }, '');
   } else {
-    return children;
+    return `${children}`;
   }
 };
 
