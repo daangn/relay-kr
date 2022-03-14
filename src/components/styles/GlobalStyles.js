@@ -559,6 +559,10 @@ export const baseStyles = css`
     font-weight: 400;
   }
 
+  .hiddenSearchBar {
+    visibility: hidden !important;
+  }
+
   /* **************************** */
 
   .nextRightWrapper {

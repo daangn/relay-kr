@@ -14,7 +14,7 @@ const config = {
     tweetText: '',
     links: [{ text: '', link: '' }],
     search: {
-      enabled: true,
+      enabled: false,
       indexName: 'relay-kr',
       // algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       // algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,

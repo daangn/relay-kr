@@ -15,7 +15,7 @@ const isSearchEnabled = config.header.search && config.header.search.enabled ? t
 
 let searchIndices = [];
 
-if (isSearchEnabled && config.header.search.indexName) {
+if (config.header.search.indexName) {
   searchIndices.push({
     name: `${config.header.search.indexName}`,
     title: `Results`,
@@ -103,7 +103,9 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
               <div className={'searchWrapper hiddenMobile navBarUL'}>
                 <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
-            ) : null}
+            ) : <div className={'searchWrapper hiddenMobile navBarUL hiddenSearchBar'}>
+              <LoadableComponent collapse={true} indices={searchIndices} />
+            </div>}
             <div id="navbar" className={'topnav'}>
               <div className={'visibleMobile'}>
                 <Sidebar location={location} />
