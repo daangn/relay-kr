@@ -271,6 +271,7 @@ export const baseStyles = css`
     position: fixed;
     height: 80px;
     width: 100%;
+margin-right: 15px;
   }
   .navBarHeader {
     min-width: 335px;
@@ -761,6 +762,7 @@ export const baseStyles = css`
     .headerTitle {
       padding-right: 50px;
       font-size: 16px;
+      margin-left: 45px;
     }
     .navBarBrand {
       min-height: 40px;
