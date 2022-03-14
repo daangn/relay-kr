@@ -762,7 +762,6 @@ margin-right: 15px;
     .headerTitle {
       padding-right: 50px;
       font-size: 16px;
-      margin-left: 45px;
     }
     .navBarBrand {
       min-height: 40px;
@@ -813,13 +812,14 @@ margin-right: 15px;
     .navBarDefault {
       display: block;
       height: auto;
+      width: 100vw;
     }
 
     .navBarToggle {
       margin-right: 0;
       display: block;
       position: absolute;
-      left: 11px;
+      right: 11px;
       top: 15px;
       background: #fff;
     }
