@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+
+name: 배포
+
+jobs:
+  build-n-deploy:
+    name: gatsby를 빌드하고 gh-pages로 배포해요.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: yarn install
+        run: yarn install
+
+      - name: yarn build && yarn gh-pages
+        run: yarn deploy
